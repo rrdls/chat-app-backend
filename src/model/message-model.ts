@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose'
 
-const ChatAppSchema = new Schema({
+const MessageSchema = new Schema({
   message: String,
   name: String,
   timestamp: String,
   received: Boolean
 })
 
-export default model('messagecontents', ChatAppSchema)
+export default model('message', MessageSchema)
