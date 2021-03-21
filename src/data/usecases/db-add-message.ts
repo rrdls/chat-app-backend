@@ -1,6 +1,6 @@
-import { IAddMessageRepository } from './../interfaces/db/message/add-message-repository'
+import { IAddMessageRepository } from './../interfaces/db/message'
 import { Message } from '../../domain/entities'
-import { IAddMessage } from './../../domain/usecases/add-message'
+import { IAddMessage } from './../../domain/usecases'
 
 export class DBAddMessage implements IAddMessage {
   private readonly addMessageRepository: IAddMessageRepository

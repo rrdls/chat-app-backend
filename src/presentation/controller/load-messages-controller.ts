@@ -1,4 +1,4 @@
-import { ILoadMessages } from './../../domain/usecases'
+import { ILoadMessages } from '../../domain/usecases'
 import { HttpResponse } from '../interfaces'
 import { IController } from '../interfaces'
 
@@ -9,7 +9,7 @@ export class LoadMessageController implements IController {
   }
 
   async handle(request: any): Promise<HttpResponse> {
-    const messages = this.loadMessages.load()
-    return await { statusCode: 200, body: messages }
+    const messages = await this.loadMessages.load()
+    return { statusCode: 200, body: messages }
   }
 }

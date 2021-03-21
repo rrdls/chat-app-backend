@@ -1,8 +1,8 @@
-import { ILoadMessageRepository } from './../interfaces/db/message/load-message-repository'
+import { ILoadMessageRepository } from './../interfaces/db/message'
 import { Message } from '../../domain/entities'
-import { ILoadMessages } from './../../domain/usecases/load-messages'
+import { ILoadMessages } from './../../domain/usecases'
 
-export class LoadMessages implements ILoadMessages {
+export class DBLoadMessages implements ILoadMessages {
   private readonly loadMessagesRepository: ILoadMessageRepository
 
   constructor(loadMessagesRepository: ILoadMessageRepository) {

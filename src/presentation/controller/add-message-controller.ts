@@ -2,6 +2,16 @@ import { HttpResponse } from '../interfaces'
 import { IController } from '../interfaces'
 import { IAddMessage } from '../../domain/usecases'
 
+import Pusher from 'pusher'
+
+const pusher = new Pusher({
+  appId: '1150691',
+  key: '3fd0bf5e51fea33ce05a',
+  secret: '4984d889c427f599264c',
+  cluster: 'eu',
+  useTLS: true
+})
+
 export class AddMessageController implements IController {
   private readonly addMessage: IAddMessage
 
@@ -10,8 +20,9 @@ export class AddMessageController implements IController {
   }
 
   async handle(request: HttpRequest): Promise<HttpResponse> {
-    await this.addMessage.add(request)
-    return { statusCode: 201, body: {} }
+    this.addMessage.add(request)
+    pusher.trigger('message', 'inserted', request)
+    return { statusCode: 201, body: request }
   }
 }
 
