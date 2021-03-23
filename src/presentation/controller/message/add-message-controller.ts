@@ -1,27 +1,20 @@
+import { ITrigger } from './../../../data/interfaces/websocket/trigger'
 import { HttpResponse } from '../../interfaces'
 import { IController } from '../../interfaces'
 import { IAddMessage } from '../../../domain/usecases'
 
-import Pusher from 'pusher'
-
-const pusher = new Pusher({
-  appId: '1150691',
-  key: '3fd0bf5e51fea33ce05a',
-  secret: '4984d889c427f599264c',
-  cluster: 'eu',
-  useTLS: true
-})
-
 export class AddMessageController implements IController {
   private readonly addMessage: IAddMessage
+  private readonly websocket: ITrigger
 
-  constructor(addMessage: IAddMessage) {
+  constructor(addMessage: IAddMessage, websocket: ITrigger) {
     this.addMessage = addMessage
+    this.websocket = websocket
   }
 
   async handle(request: HttpRequest): Promise<HttpResponse> {
     this.addMessage.add(request)
-    pusher.trigger('message', 'inserted', request)
+    this.websocket.trigger('message', 'inserted', request)
     return { statusCode: 201, body: request }
   }
 }
