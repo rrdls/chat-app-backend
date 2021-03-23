@@ -1,4 +1,4 @@
-import { IMongoHelper } from './../../../data/interfaces/db/message'
+import { IMongoHelper } from './../../../data/interfaces/db'
 import { MongoClient, Collection } from 'mongodb'
 
 export class MongoHelper implements IMongoHelper {

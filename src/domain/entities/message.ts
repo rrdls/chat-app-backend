@@ -4,5 +4,6 @@ export type Message = {
   name: string
   timestamp: Date
   received: boolean
+  user_id: string
   _v?: number
 }

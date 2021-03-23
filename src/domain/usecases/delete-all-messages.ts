@@ -1,3 +1,3 @@
 export interface IDeleteAllMessages {
-  drop: () => Promise<void>
+  drop(): Promise<void>
 }

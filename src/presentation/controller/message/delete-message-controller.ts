@@ -1,6 +1,6 @@
-import { IDeleteMessage } from './../../domain/usecases'
-import { HttpResponse } from '../interfaces'
-import { IController } from '../interfaces'
+import { IDeleteMessage } from '../../../domain/usecases'
+import { HttpResponse } from '../../interfaces'
+import { IController } from '../../interfaces'
 
 export class DeleteMessageController implements IController {
   private readonly deleteMessage: IDeleteMessage

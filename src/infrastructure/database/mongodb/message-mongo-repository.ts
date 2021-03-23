@@ -5,7 +5,7 @@ import {
 import { ILoadMessageRepository } from './../../../data/interfaces/db/message'
 import { IAddMessageRepository } from './../../../data/interfaces/db/message'
 import { Message } from '../../../domain/entities'
-import { IMongoHelper } from '../../../data/interfaces/db/message'
+import { IMongoHelper } from '../../../data/interfaces/db'
 import { ObjectId } from 'bson'
 
 export class MessageMongoRepository

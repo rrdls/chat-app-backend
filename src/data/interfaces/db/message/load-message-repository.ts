@@ -1,5 +1,5 @@
 import { Message } from '../../../../domain/entities'
 
 export interface ILoadMessageRepository {
-  load: () => Promise<Message[]>
+  load(): Promise<Message[]>
 }

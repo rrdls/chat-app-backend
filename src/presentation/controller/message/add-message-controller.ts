@@ -1,6 +1,6 @@
-import { HttpResponse } from '../interfaces'
-import { IController } from '../interfaces'
-import { IAddMessage } from '../../domain/usecases'
+import { HttpResponse } from '../../interfaces'
+import { IController } from '../../interfaces'
+import { IAddMessage } from '../../../domain/usecases'
 
 import Pusher from 'pusher'
 
@@ -31,4 +31,5 @@ type HttpRequest = {
   name: string
   timestamp: Date
   received: boolean
+  user_id: string
 }

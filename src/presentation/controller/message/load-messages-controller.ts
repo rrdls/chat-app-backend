@@ -1,8 +1,8 @@
-import { ILoadMessages } from '../../domain/usecases'
-import { HttpResponse } from '../interfaces'
-import { IController } from '../interfaces'
+import { ILoadMessages } from '../../../domain/usecases'
+import { HttpResponse } from '../../interfaces'
+import { IController } from '../../interfaces'
 
-export class LoadMessageController implements IController {
+export class LoadMessagesController implements IController {
   private readonly loadMessages: ILoadMessages
   constructor(loadMessage: ILoadMessages) {
     this.loadMessages = loadMessage
