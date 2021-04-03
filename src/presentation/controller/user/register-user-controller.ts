@@ -1,3 +1,4 @@
+import { User } from './../../../domain/entities/user'
 import { HttpResponse } from '../../interfaces'
 import { IController } from '../../interfaces'
 import { IRegisterUser } from '../../../domain/usecases'
@@ -26,8 +27,4 @@ export class RegisterUserController implements IController {
   }
 }
 
-type HttpRequest = {
-  name: string
-  email: string
-  password: string
-}
+type HttpRequest = User

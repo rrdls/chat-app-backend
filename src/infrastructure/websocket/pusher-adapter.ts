@@ -1,4 +1,4 @@
-import { ITrigger } from './../../data/interfaces/websocket/trigger'
+import { IWebSocket } from './../../data/interfaces/websocket/websocket'
 import Pusher from 'pusher'
 
 const options = {
@@ -9,7 +9,7 @@ const options = {
   useTLS: true
 }
 
-export class PusherAdapter implements ITrigger {
+export class PusherAdapter implements IWebSocket {
   async trigger(channel: string, event: string, data: any): Promise<void> {
     const pusher = new Pusher(options)
     pusher.trigger(channel, event, data)

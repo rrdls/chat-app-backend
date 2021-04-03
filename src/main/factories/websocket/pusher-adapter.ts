@@ -1,6 +1,6 @@
-import { ITrigger } from './../../../data/interfaces/websocket/trigger'
+import { IWebSocket } from '../../../data/interfaces/websocket/websocket'
 import { PusherAdapter } from './../../../infrastructure/websocket/pusher-adapter'
 
-export const makePusherAdapter = (): ITrigger => {
+export const makePusherAdapter = (): IWebSocket => {
   return new PusherAdapter()
 }

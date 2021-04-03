@@ -1,3 +1,4 @@
+import { makeCreateMessageController } from './../factories/controllers/user/create-message-controller'
 import { makeLoadAllUsersController } from './../factories/controllers/user/load-all-users-controller'
 import { makeRegisterUserController } from './../factories/controllers/user/register-user-controller'
 import { adaptRoute } from './../adapter'
@@ -6,4 +7,5 @@ const routes = Router()
 
 routes.get('/users', adaptRoute(makeLoadAllUsersController()))
 routes.post('/users', adaptRoute(makeRegisterUserController()))
+routes.post('/message', adaptRoute(makeCreateMessageController()))
 export default routes

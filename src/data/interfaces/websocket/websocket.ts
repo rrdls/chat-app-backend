@@ -1,3 +1,3 @@
-export interface ITrigger {
+export interface IWebSocket {
   trigger(channel: string, event: string, data: any): Promise<void>
 }
