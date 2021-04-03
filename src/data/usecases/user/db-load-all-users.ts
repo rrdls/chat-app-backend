@@ -8,7 +8,7 @@ export class DBLoadAllUsers implements ILoadAllUsers {
   constructor(loadAllUsersRepository: ILoadAllUsersRepository) {
     this.loadAllUsersRepository = loadAllUsersRepository
   }
-  async load(): Promise<User[]> {
-    return await this.loadAllUsersRepository.load()
+  async loadAll(): Promise<User[]> {
+    return await this.loadAllUsersRepository.loadAll()
   }
 }

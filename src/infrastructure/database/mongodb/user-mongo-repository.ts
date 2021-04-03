@@ -1,15 +1,18 @@
+import { ILoadUserRepository } from './../../../data/interfaces/db/user/load-user-repository'
 import { ICreateMessageRepository } from './../../../data/interfaces/db/user'
 import { User } from './../../../domain/entities/user'
 import { ILoadAllUsersRepository } from './../../../data/interfaces/db/user'
 import { IRegisterUserRepository } from './../../../data/interfaces/db/user'
 import { IMongoHelper } from '../../../data/interfaces/db'
 import { Message } from '../../../domain/entities'
+import { ObjectId } from 'bson'
 
 export class UserMongoRepository
   implements
     IRegisterUserRepository,
     ILoadAllUsersRepository,
-    ICreateMessageRepository {
+    ICreateMessageRepository,
+    ILoadUserRepository {
   constructor(private readonly mongoHelper: IMongoHelper) {}
 
   async create(
@@ -36,9 +39,15 @@ export class UserMongoRepository
     await usersCollection.insertOne(user)
   }
 
-  async load(): Promise<User[]> {
+  async loadAll(): Promise<User[]> {
     const usersCollection = await this.mongoHelper.getCollection('users')
     const users = await usersCollection.find().toArray()
     return users
+  }
+
+  async load(id: string): Promise<User> {
+    const usersCollection = await this.mongoHelper.getCollection('users')
+    const user = await usersCollection.findOne({ _id: new ObjectId(id) })
+    return user
   }
 }

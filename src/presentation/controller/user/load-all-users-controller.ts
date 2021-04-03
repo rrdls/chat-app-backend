@@ -9,7 +9,7 @@ export class LoadAllUsersController implements IController {
   }
 
   async handle(request: any): Promise<HttpResponse> {
-    const users = await this.loadAllUsers.load()
+    const users = await this.loadAllUsers.loadAll()
     return { statusCode: 200, body: users }
   }
 }
